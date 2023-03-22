@@ -1,0 +1,2 @@
+Some random sentence
+{"uid":501,"gid":20,"username":"aleksey","homedir":"/Users/aleksey","shell":"/bin/zsh"}
