@@ -1,0 +1,8 @@
+Here is the SYNC result:
+Hello this is first text file
+Hello this is second text fileHere is the SYNC result:
+Hello this is first text file
+Hello this is second text file
+Here is the SYNC result:
+Hello this is first text file
+Hello this is second text file
