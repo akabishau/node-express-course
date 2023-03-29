@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
 
-app.listen(3000, () => {
-    console.log('Server is listening on port 3000....')
-})
+const consoleLog = require('./middleware/practice-middleware')
+app.use(consoleLog)
+
 
 app.use(express.static('./new-public'))
 
@@ -14,4 +14,10 @@ app.get('/sample', (req, res) => {
 
 app.all('*', (req, res) => {
     res.status(404).send('resource not found')
+})
+
+
+const port = 3000
+app.listen(port, () => {
+    console.log(`Server is listening on port ${port}....`)
 })
