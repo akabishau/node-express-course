@@ -7,7 +7,6 @@ const getAllTasks = async (req, res) => {
     } catch (err) {
         res.status(500).json({ msg: err })
     }
-
 }
 
 const createTask = async (req, res) => {
@@ -17,8 +16,6 @@ const createTask = async (req, res) => {
     } catch (err) {
         res.status(500).json({ msg: err })
     }
-
-
 }
 
 const getTask = async (req, res) => {
@@ -35,6 +32,8 @@ const getTask = async (req, res) => {
     }
 }
 
+// patch: update only the fields that are provided
+// put: update all the fields = replace the document
 const updateTask = async (req, res) => {
     try {
         const id = req.params.id
