@@ -14,6 +14,12 @@ const tasksRouter = require('./routes/tasks')
 app.use('/api/v1/tasks', tasksRouter)
 
 
+
+// 404 middleware
+const notFound = require('./middleware/not-found')
+app.use(notFound)
+
+
 // only start the server if connection to DB is successful
 let port = 3000
 const start = async () => {
