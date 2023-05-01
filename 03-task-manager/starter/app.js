@@ -20,6 +20,10 @@ const notFound = require('./middleware/not-found')
 app.use(notFound)
 
 
+const errorHander = require('./middleware/error-handler')
+app.use(errorHander)
+
+
 // only start the server if connection to DB is successful
 let port = 3000
 const start = async () => {
