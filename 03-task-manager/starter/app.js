@@ -25,7 +25,7 @@ app.use(errorHander)
 
 
 // only start the server if connection to DB is successful
-let port = 3000
+let port = process.env.PORT || 3000
 const start = async () => {
     try {
         await connectDB(process.env.MONGODB_URL)
