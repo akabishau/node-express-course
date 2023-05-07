@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 const connectDB = (url) => {
-    mongoose.connect(url, { // second argument is an object with options
+    // second argument is an object with options
+    mongoose.connect(url, { 
         useNewUrlParser: true,
         useCreateIndex: true,
         useUnifiedTopology: true,

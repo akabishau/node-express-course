@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 
 
-// db connection
+const connectDB = require('./db/connect')
 require('dotenv').config()
 
 
@@ -27,7 +27,7 @@ app.use(errorHandler)
 let port = process.env.PORT || 3000
 const start = async () => {
     try {
-        // connect to db
+        await connectDB(process.env.MONGODB_URI)
         app.listen(port, () => {
             console.log('Server is up on port ' + port)
         })
