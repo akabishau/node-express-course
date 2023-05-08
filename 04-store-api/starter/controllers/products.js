@@ -1,5 +1,6 @@
 const getAllProductsStatic = async (req, res) => {
-    throw new Error('testing async erros') // just throw an error, no need to use try-catch
+    // just throw an error, no need to use try-catch
+    throw new Error('testing async erros for static products') 
     res.status(200).json({ msg: 'products testing route'})
 }
 

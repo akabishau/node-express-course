@@ -1,14 +1,8 @@
-console.log('04 Store API')
 const express = require('express')
 const app = express()
 
+// configuration
 require('express-async-errors')
-
-
-const connectDB = require('./db/connect')
-require('dotenv').config()
-
-
 app.use(express.json())
 
 
@@ -21,7 +15,7 @@ const productsRouter = require('./routes/products')
 app.use('/api/v1/products', productsRouter)
 
 
-// not found
+// errors
 const notFound = require('./middleware/not-found')
 app.use(notFound)
 
@@ -29,6 +23,9 @@ const errorHandler = require('./middleware/error-handler')
 app.use(errorHandler)
 
 
+// database connection/configuration
+require('dotenv').config()
+const connectDB = require('./db/connect')
 let port = process.env.PORT || 3000
 const start = async () => {
     try {
