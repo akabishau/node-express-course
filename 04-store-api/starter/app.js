@@ -2,6 +2,8 @@ console.log('04 Store API')
 const express = require('express')
 const app = express()
 
+require('express-async-errors')
+
 
 const connectDB = require('./db/connect')
 require('dotenv').config()
