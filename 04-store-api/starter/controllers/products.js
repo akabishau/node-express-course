@@ -7,7 +7,7 @@ const getAllProductsStatic = async (req, res) => {
     //const products = await Product.find( { featured: true, company: 'ikea' })
 
     // using regex as search
-    const products = await Product.find({}).sort('-price')
+    const products = await Product.find({}).sort('-price').select('name price')
     res.status(200).json({ total: products.length, items: products })
 }
 
@@ -15,7 +15,7 @@ const getAllProductsStatic = async (req, res) => {
 const getAllProducts = async (req, res) => {
 
     // all values come from the query parameters
-    const { featured, company, name, sort } = req.query
+    const { featured, company, name, sort, fields } = req.query
     const queryObject = {} // empty object returns all products
 
     if (featured) {
@@ -35,11 +35,17 @@ const getAllProducts = async (req, res) => {
 
     // sort functionality
     if (sort) {
-        console.log(sort)
         const sortList = sort.split(',').join(' ')
         result.sort(sortList)
     } else {
         result.sort('createdAt') //default sorting if not available in query params
+    }
+
+    // selected fields
+    if (fields) {
+        console.log(fields)
+        const fieldsList = fields.split(',').join(' ')
+        result.select(fieldsList)
     }
 
     const products = await result
