@@ -1,0 +1,23 @@
+1. Quickly explain how middleware is used in an Express application.
+- Middleware functions can be used for different tasks like logging, authentication, etc.
+- Using these custom functions, we can define and control the flow of the app logic.
+- Middleware functions have access to the request and response objects, and they also have "next" function which is used to go to the next middleware function in the app flow
+- The order of calling middleware functions in the app.js matters.
+- Middleware functions can be applied for all or specific routes if defined
+
+
+2. What does CRUD stand for?
+-It represents the following functions/db operations: create, read, update, delete
+
+
+3. You are careful to store your sensitive information in a .env file.
+    3.1 How do you get your app to access the information in the .env file?
+    - install dotenv package
+    - create .env file
+    - define variable in a key=value format
+    - import dotenv module and call config() method
+    - get access to env variables through the process object
+
+    3.2 How do you protect the contents of the .env file so that it is not stored in your github repository?
+    - include .env to the .gitignore file
+
