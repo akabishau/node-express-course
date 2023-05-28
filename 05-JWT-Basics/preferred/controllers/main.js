@@ -12,18 +12,39 @@ const loginController = (req, res) => {
         })
     }
 
-    // create a token
-    const token = jwt.sign(
-        { username },
-        process.env.SECRET, // secret key
-        { expiresIn: process.env.LIFETIME }
-    )
+    // // create and sign token - sync version
+    // const token = jwt.sign(
+    //     { username },
+    //     process.env.SECRET, // secret key
+    //     { expiresIn: process.env.LIFETIME }
+    // )
 
-    res.status(200).json({
-        status: 'success',
-        message: 'Login completed',
-        token
-    })
+    // res.status(200).json({
+    //     status: 'success',
+    //     message: 'Login completed',
+    //     token
+    // })
+
+    // sign token - async version
+    jwt.sign(
+        { username },
+        process.env.SECRET,
+        { expiresIn: process.env.LIFETIME },
+        (err, token) => {
+            if (err) {
+                res.status(400).json({
+                    status: 'failed',
+                    message: 'Error of signing JWT'
+                })
+            } else {
+                res.status(200).json({
+                    status: 'success',
+                    message: 'Login completed',
+                    token
+                })
+            }
+        }
+    )
 }
 
 
